@@ -9,6 +9,29 @@ Uses data from https://github.com/AliasIO/wappalyzer
 - Very simple and easy to use, with clean codebase.
 - Normalized regexes + auto-updating database of wappalyzer fingerprints.
 - Optimized for performance: parsing HTML manually for best speed.
+- Dockerized Endpoint
+
+## Getting Started
+
+### Docker Variables
+- `PORT`: the port number to listen on
+- `LOG_LEVEL`: log level (`debug`, `info`, `warn`, `error`)
+- `HTTP_PROXY`: HTTP proxy address
+- `HTTPS_PROXY`: HTTPS proxy address
+
+### API Endpoint
+- Send a GET request to `http://your_server_address:port?url=<url_to_analyze>` to analyze a URL.
+- Replace `your_server_address` with the IP address or domain name of the server running the application.
+- Replace `port` with the value of the `PORT` variable.
+
+### Example
+```sh
+docker run -p 8087:8087 -e PORT=8087 -e LOG_LEVEL=info -d ghcr.io/equalifyapp/
+```
+
+This will start the application and expose port 8087 on the host machine. You can then access the API using the endpoint described above.
+
+
 
 ### Using *go install*
 
